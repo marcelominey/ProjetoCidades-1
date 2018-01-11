@@ -1,0 +1,27 @@
+<div>
+    
+    <h2>Todos os Dados do Martché</h2>
+    <table>
+        <tr>
+            <th>Id</th> <!--table HEADER-->
+            <th>Nome</th>
+            <th>Estado</th>
+            <th>Habitantes</th>
+        </tr>
+        @{
+            foreach(var item in Model){
+                <tr>
+                    <td>@item.Id</td> //table DATA
+                    <td>@item.Nome</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Habitantes</td>
+                </tr>
+            }
+        }
+    </table>
+
+</div>
+
+
+
+
