@@ -23,5 +23,9 @@ namespace ProjetoCidades.Controllers
             var lista = cidade.ListarCidades();
             return View(lista);
         }
+
+        public IActionResult Cadastrar(){
+            return View();
+        }
     }
 }

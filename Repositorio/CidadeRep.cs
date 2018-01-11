@@ -38,5 +38,17 @@ namespace ProjetoCidades_master.Repositorio
             return lstCidades;
 
         }
+
+        public void Cadastrar (Cidade cidade){
+            SqlConnection con = new SqlConnection (connectionString);
+
+            string SqlQuery="insert into Cidades (Nome,Estado,Habitantes) values('"+ cidade.Nome +"','"+cidade.Estado + "',"+cidade.Habitantes+")";    
+
+            SqlCommand cmd = new SqlCommand(SqlQuery,con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
     }
 }
