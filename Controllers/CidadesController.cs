@@ -1,6 +1,7 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoCidades.Models;
-using ProjetoCidades_master.Repositorio;
+using ProjetoCidades.Repositorio;
 
 namespace ProjetoCidades.Controllers
 {
@@ -16,11 +17,11 @@ namespace ProjetoCidades.Controllers
         }
         public IActionResult CidadesEstados(){
             //vai lá dentro da View procurar esse arquivo CidaedesEstados
-            var lista = cidade.ListarCidades();
+            var lista = objCidadeRep.Listar();
             return View(lista);
         }
         public IActionResult TodosOsDados(){
-            var lista = cidade.ListarCidades();
+            var lista = objCidadeRep.Listar();
             return View(lista);
         }
 
@@ -32,6 +33,24 @@ namespace ProjetoCidades.Controllers
         [HttpPost]
         public IActionResult Cadastrar([Bind]Cidade cidade){
             objCidadeRep.Cadastrar(cidade);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Editar(int id){
+            var lista = objCidadeRep.Listar().Where(x => x.Id == id).FirstOrDefault();
+            return View(lista);
+
+        }
+
+        [HttpPost]
+        public IActionResult Editar([Bind]Cidade cidade){
+            objCidadeRep.Editar(cidade);
+            return RedirectToAction("Index");
+        }
+
+        
+        public IActionResult Excluir(int id){
+            var lista = objCidadeRep.Excluir(id);
             return RedirectToAction("Index");
         }
     }

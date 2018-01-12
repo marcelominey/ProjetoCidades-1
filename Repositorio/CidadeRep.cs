@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using ProjetoCidades.Models;
 
-namespace ProjetoCidades_master.Repositorio
+namespace ProjetoCidades.Repositorio
 {
     public class CidadeRep
     {
@@ -50,5 +50,73 @@ namespace ProjetoCidades_master.Repositorio
             con.Close();
 
         }
-    }
+        public void Editar (Cidade cidade){
+            SqlConnection con = new SqlConnection (connectionString);
+            string msg;
+            
+            try{
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Update Cidades set nome = @n, estado =@e, habitantes = @h where id = @id";
+                cmd.Parameters.AddWithValue("@n", cidade.Nome);
+                cmd.Parameters.AddWithValue("@e", cidade.Estado);
+                cmd.Parameters.AddWithValue("@h", cidade.Habitantes);
+                cmd.Parameters.AddWithValue("@id", cidade.Id);
+                //string SqlQuery="update into Cidades (Nome,Estado,Habitantes) values('"+ cidade.Nome +"','"+cidade.Estado + "',"+cidade.Habitantes+")";    
+                //SqlCommand cmd = new SqlCommand(SqlQuery,con);
+                con.Open();
+                //cmd.ExecuteNonQuery();
+                //con.Close();
+                int r = cmd.ExecuteNonQuery();
+
+                if(r > 0)
+                    msg = "Atualização Efetuada";
+                else
+                    msg = "Não foi possível atualizar";
+                
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException se)
+            {
+                throw new Exception("Erro ao tentar atualizar dados " + se.Message);
+            }
+            catch (System.Exception e)
+            {
+                throw new Exception("Erro inesperado " + e.Message);
+                throw;
+            }
+        }
+    public string Excluir (int id){
+            SqlConnection con = new SqlConnection (connectionString);
+            string msg;
+            
+            try{
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "DELETE FROM Cidades WHERE id = @id";
+            
+                cmd.Parameters.AddWithValue("@id", id);
+                int r = cmd.ExecuteNonQuery();
+
+                if(r > 0)
+                    msg = "Cidade excluída";
+                else
+                    msg = "Não foi possível excluir";
+                
+                cmd.Parameters.Clear();
+            }
+            catch (SqlException se)
+            {
+                throw new Exception("Erro ao tentar atualizar dados " + se.Message);
+            }
+            catch (System.Exception e)
+            {
+                throw new Exception("Erro inesperado " + e.Message);
+                throw;
+            }
+            return msg;
+        }}
+
+
 }

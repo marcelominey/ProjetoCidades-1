@@ -12533,23 +12533,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\07939313983\\.nuget\\packages\\": {},
+    "C:\\Users\\22386773809\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\07939313983\\Desktop\\ProjetoCidades-master\\ProjetoCidades.csproj",
+      "projectUniqueName": "C:\\Users\\22386773809\\Desktop\\ProjetoCidades\\ProjetoCidades.csproj",
       "projectName": "ProjetoCidades",
-      "projectPath": "C:\\Users\\07939313983\\Desktop\\ProjetoCidades-master\\ProjetoCidades.csproj",
-      "packagesPath": "C:\\Users\\07939313983\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\07939313983\\Desktop\\ProjetoCidades-master\\obj\\",
+      "projectPath": "C:\\Users\\22386773809\\Desktop\\ProjetoCidades\\ProjetoCidades.csproj",
+      "packagesPath": "C:\\Users\\22386773809\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\22386773809\\Desktop\\ProjetoCidades\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\07939313983\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\22386773809\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
